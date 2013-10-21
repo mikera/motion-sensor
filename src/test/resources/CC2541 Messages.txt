@@ -1,0 +1,386 @@
+Initial discovery / connection
+
+------------------------------------------------------------------------------------------------------------------------
+[13] : <Tx> - 01:47:01.935
+-Type		: 0x01 (Command)
+-Opcode		: 0xFE04 (GAP_DeviceDiscoveryRequest)
+-Data Length	: 0x03 (3) byte(s)
+ Mode		: 0x03 (All)
+ ActiveScan	: 0x01 (Enable)
+ WhiteList		: 0x00 (Disable)
+Dump(Tx):
+01 04 FE 03 03 01 00 
+------------------------------------------------------------------------------------------------------------------------
+[14] : <Rx> - 01:47:01.944
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x067F (GAP_HCI_ExtentionCommandStatus)
+ Status		: 0x00 (Success)
+ OpCode		: 0xFE04 (GAP_DeviceDiscoveryRequest)
+ DataLength	: 0x00 (0)
+Dump(Rx):
+04 FF 06 7F 06 00 04 FE 00 
+------------------------------------------------------------------------------------------------------------------------
+[15] : <Rx> - 01:47:05.944
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x28 (40) bytes(s)
+ Event		: 0x060D (GAP_DeviceInformation)
+ Status		: 0x00 (Success)
+ EventType	: 0x00 (Connectable Undirect Advertisement)
+ AddrType	: 0x01 (Static)
+ Addr		: CE:7B:9A:F0:A5:F8
+ Rssi		: 0xC2 (194)
+ DataLength	: 0x1B (27)
+ Data		: 02:01:06:11:06:BA:56:89:A6:FA:BF:A2:BD:01:46:7D:
+		  6E:00:FB:AB:AD:05:16:0A:18:07:06
+Dump(Rx):
+04 FF 28 0D 06 00 00 01 F8 A5 F0 9A 7B CE C2 1B 
+02 01 06 11 06 BA 56 89 A6 FA BF A2 BD 01 46 7D 
+6E 00 FB AB AD 05 16 0A 18 07 06 
+------------------------------------------------------------------------------------------------------------------------
+[16] : <Rx> - 01:47:05.954
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x16 (22) bytes(s)
+ Event		: 0x060D (GAP_DeviceInformation)
+ Status		: 0x00 (Success)
+ EventType	: 0x04 (Scan Response)
+ AddrType	: 0x01 (Static)
+ Addr		: CE:7B:9A:F0:A5:F8
+ Rssi		: 0xC2 (194)
+ DataLength	: 0x09 (9)
+ Data		: 05:09:46:6C:65:78:02:0A:FA
+Dump(Rx):
+04 FF 16 0D 06 00 04 01 F8 A5 F0 9A 7B CE C2 09 
+05 09 46 6C 65 78 02 0A FA 
+------------------------------------------------------------------------------------------------------------------------
+[17] : <Rx> - 01:47:11.754
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x0606 (GAP_TerminateLink)
+ Status		: 0x00 (Success)
+ ConnHandle	: 0x0001 (1)
+ Reason		: 0x13 (Peer Requested)
+Dump(Rx):
+04 FF 06 06 06 00 01 00 13 
+------------------------------------------------------------------------------------------------------------------------
+[18] : <Rx> - 01:47:12.104
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x10 (16) bytes(s)
+ Event		: 0x060D (GAP_DeviceInformation)
+ Status		: 0x00 (Success)
+ EventType	: 0x00 (Connectable Undirect Advertisement)
+ AddrType	: 0x00 (Public)
+ Addr		: 34:B1:F7:D5:58:78
+ Rssi		: 0xC4 (196)
+ DataLength	: 0x03 (3)
+ Data		: 02:01:05
+Dump(Rx):
+04 FF 10 0D 06 00 00 00 78 58 D5 F7 B1 34 C4 03 
+02 01 05 
+------------------------------------------------------------------------------------------------------------------------
+[19] : <Rx> - 01:47:12.114
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x21 (33) bytes(s)
+ Event		: 0x060D (GAP_DeviceInformation)
+ Status		: 0x00 (Success)
+ EventType	: 0x04 (Scan Response)
+ AddrType	: 0x00 (Public)
+ Addr		: 34:B1:F7:D5:58:78
+ Rssi		: 0xC3 (195)
+ DataLength	: 0x14 (20)
+ Data		: 0A:09:53:65:6E:73:6F:72:54:61:67:05:12:50:00:20:
+		  03:02:0A:00
+Dump(Rx):
+04 FF 21 0D 06 00 04 00 78 58 D5 F7 B1 34 C3 14 
+0A 09 53 65 6E 73 6F 72 54 61 67 05 12 50 00 20 
+03 02 0A 00 
+------------------------------------------------------------------------------------------------------------------------
+[20] : <Rx> - 01:47:12.184
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x14 (20) bytes(s)
+ Event		: 0x0601 (GAP_DeviceDiscoveryDone)
+ Status		: 0x00 (Success)
+ NumDevs	: 0x02 (2)
+ Device #0
+ EventType	: 0x00 (Connectable Undirect Advertisement)
+ AddrType	: 0x01 (Static)
+ Addr		: CE:7B:9A:F0:A5:F8
+ Device #1
+ EventType	: 0x00 (Connectable Undirect Advertisement)
+ AddrType	: 0x00 (Public)
+ Addr		: 34:B1:F7:D5:58:78
+Dump(Rx):
+04 FF 14 01 06 00 02 00 01 F8 A5 F0 9A 7B CE 00 
+00 78 58 D5 F7 B1 34 
+------------------------------------------------------------------------------------------------------------------------
+[21] : <Tx> - 01:48:45.005
+-Type		: 0x01 (Command)
+-Opcode		: 0xFE09 (GAP_EstablishLinkRequest)
+-Data Length	: 0x09 (9) byte(s)
+ HighDutyCycle	: 0x00 (Disable)
+ WhiteList		: 0x00 (Disable)
+ AddrTypePeer	: 0x00 (Public)
+ PeerAddr		: 78:58:D5:F7:B1:34
+Dump(Tx):
+01 09 FE 09 00 00 00 78 58 D5 F7 B1 34 
+------------------------------------------------------------------------------------------------------------------------
+[22] : <Rx> - 01:48:45.030
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x067F (GAP_HCI_ExtentionCommandStatus)
+ Status		: 0x00 (Success)
+ OpCode		: 0xFE09 (GAP_EstablishLinkRequest)
+ DataLength	: 0x00 (0)
+Dump(Rx):
+04 FF 06 7F 06 00 09 FE 00 
+------------------------------------------------------------------------------------------------------------------------
+[23] : <Info> - 01:48:45.190
+Device Connected
+Handle = 0x0000
+Addr Type = 0x00 (Public)
+BDAddr = 34:B1:F7:D5:58:78
+------------------------------------------------------------------------------------------------------------------------
+[24] : <Rx> - 01:48:45.173
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x13 (19) bytes(s)
+ Event		: 0x0605 (GAP_EstablishLink)
+ Status		: 0x00 (Success)
+ DevAddrType	: 0x00 (Public)
+ DevAddr		: 34:B1:F7:D5:58:78
+ ConnHandle	: 0x0000 (0)
+ ConnInterval	: 0x0050 (80)
+ ConnLatency	: 0x0000 (0)
+ ConnTimeout	: 0x07D0 (2000)
+ ClockAccuracy	: 0x00 (0)
+Dump(Rx):
+04 FF 13 05 06 00 00 78 58 D5 F7 B1 34 00 00 50 
+00 00 00 D0 07 00 
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+When already performing connection
+
+------------------------------------------------------------------------------------------------------------------------
+[28] : <Tx> - 03:15:10.424
+-Type		: 0x01 (Command)
+-Opcode		: 0xFE09 (GAP_EstablishLinkRequest)
+-Data Length	: 0x09 (9) byte(s)
+ HighDutyCycle	: 0x00 (Disable)
+ WhiteList		: 0x00 (Disable)
+ AddrTypePeer	: 0x00 (Public)
+ PeerAddr		: 78:58:D5:F7:B1:34
+Dump(Tx):
+01 09 FE 09 00 00 00 78 58 D5 F7 B1 34 
+------------------------------------------------------------------------------------------------------------------------
+[29] : <Rx> - 03:15:10.461
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x067F (GAP_HCI_ExtentionCommandStatus)
+ Status		: 0x11 (Already Performing That Task)
+ OpCode		: 0xFE09 (GAP_EstablishLinkRequest)
+ DataLength	: 0x00 (0)
+Dump(Rx):
+04 FF 06 7F 06 11 09 FE 00 
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+Read request for accelerometer data (before turned on)
+
+------------------------------------------------------------------------------------------------------------------------
+[30] : <Tx> - 03:18:33.111
+-Type		: 0x01 (Command)
+-Opcode		: 0xFD8A (GATT_ReadCharValue)
+-Data Length	: 0x04 (4) byte(s)
+ ConnHandle	: 0x0000 (0)
+ Handle		: 0x002D (45)
+Dump(Tx):
+01 8A FD 04 00 00 2D 00 
+------------------------------------------------------------------------------------------------------------------------
+[31] : <Rx> - 03:18:33.130
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x067F (GAP_HCI_ExtentionCommandStatus)
+ Status		: 0x00 (Success)
+ OpCode		: 0xFD8A (GATT_ReadCharValue)
+ DataLength	: 0x00 (0)
+Dump(Rx):
+04 FF 06 7F 06 00 8A FD 00 
+------------------------------------------------------------------------------------------------------------------------
+[32] : <Rx> - 03:18:33.278
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x09 (9) bytes(s)
+ Event		: 0x050B (ATT_ReadRsp)
+ Status		: 0x00 (Success)
+ ConnHandle	: 0x0000 (0)
+ PduLen		: 0x03 (3)
+ Value		: 00 00 00 
+Dump(Rx):
+04 FF 09 0B 05 00 00 00 03 00 00 00 
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Enable accelerometer notifications:
+
+------------------------------------------------------------------------------------------------------------------------
+[42] : <Tx> - 03:25:34.470
+-Type		: 0x01 (Command)
+-Opcode		: 0xFD92 (GATT_WriteCharValue)
+-Data Length	: 0x06 (6) byte(s)
+ ConnHandle	: 0x0000 (0)
+ Handle		: 0x002E (46)
+ Value		: 01:00
+Dump(Tx):
+01 92 FD 06 00 00 2E 00 01 00 
+------------------------------------------------------------------------------------------------------------------------
+[43] : <Rx> - 03:25:34.484
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x067F (GAP_HCI_ExtentionCommandStatus)
+ Status		: 0x00 (Success)
+ OpCode		: 0xFD92 (GATT_WriteCharValue)
+ DataLength	: 0x00 (0)
+Dump(Rx):
+04 FF 06 7F 06 00 92 FD 00 
+------------------------------------------------------------------------------------------------------------------------
+[44] : <Rx> - 03:25:34.764
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x0513 (ATT_WriteRsp)
+ Status		: 0x00 (Success)
+ ConnHandle	: 0x0000 (0)
+ PduLen		: 0x00 (0)
+Dump(Rx):
+04 FF 06 13 05 00 00 00 00 
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Turn on accelerometer:
+
+------------------------------------------------------------------------------------------------------------------------
+[54] : <Tx> - 03:26:09.155
+-Type		: 0x01 (Command)
+-Opcode		: 0xFD92 (GATT_WriteCharValue)
+-Data Length	: 0x05 (5) byte(s)
+ ConnHandle	: 0x0000 (0)
+ Handle		: 0x0031 (49)
+ Value		: 01
+Dump(Tx):
+01 92 FD 05 00 00 31 00 01 
+------------------------------------------------------------------------------------------------------------------------
+[55] : <Rx> - 03:26:09.169
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x067F (GAP_HCI_ExtentionCommandStatus)
+ Status		: 0x00 (Success)
+ OpCode		: 0xFD92 (GATT_WriteCharValue)
+ DataLength	: 0x00 (0)
+Dump(Rx):
+04 FF 06 7F 06 00 92 FD 00 
+------------------------------------------------------------------------------------------------------------------------
+[56] : <Rx> - 03:26:09.279
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x0513 (ATT_WriteRsp)
+ Status		: 0x00 (Success)
+ ConnHandle	: 0x0000 (0)
+ PduLen		: 0x00 (0)
+Dump(Rx):
+04 FF 06 13 05 00 00 00 00 
+------------------------------------------------------------------------------------------------------------------------
+[57] : <Rx> - 03:26:10.279
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x0B (11) bytes(s)
+ Event		: 0x051B (ATT_HandleValueNotification)
+ Status		: 0x00 (Success)
+ ConnHandle	: 0x0000 (0)
+ PduLen		: 0x05 (5)
+ Handle		: 0x002D (45)
+ Value		: FF:05:42
+Dump(Rx):
+04 FF 0B 1B 05 00 00 00 05 2D 00 FF 05 42 
+------------------------------------------------------------------------------------------------------------------------
+[58] : <Rx> - 03:26:11.369
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x0B (11) bytes(s)
+ Event		: 0x051B (ATT_HandleValueNotification)
+ Status		: 0x00 (Success)
+ ConnHandle	: 0x0000 (0)
+ PduLen		: 0x05 (5)
+ Handle		: 0x002D (45)
+ Value		: FF:05:42
+Dump(Rx):
+04 FF 0B 1B 05 00 00 00 05 2D 00 FF 05 42 
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+Turn off accelerometer
+
+------------------------------------------------------------------------------------------------------------------------
+[75] : <Tx> - 03:26:28.065
+-Type		: 0x01 (Command)
+-Opcode		: 0xFD92 (GATT_WriteCharValue)
+-Data Length	: 0x05 (5) byte(s)
+ ConnHandle	: 0x0000 (0)
+ Handle		: 0x0031 (49)
+ Value		: 00
+Dump(Tx):
+01 92 FD 05 00 00 31 00 00 
+------------------------------------------------------------------------------------------------------------------------
+[76] : <Rx> - 03:26:28.170
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x067F (GAP_HCI_ExtentionCommandStatus)
+ Status		: 0x00 (Success)
+ OpCode		: 0xFD92 (GATT_WriteCharValue)
+ DataLength	: 0x00 (0)
+Dump(Rx):
+04 FF 06 7F 06 00 92 FD 00 
+------------------------------------------------------------------------------------------------------------------------
+[77] : <Rx> - 03:26:28.280
+-Type		: 0x04 (Event)
+-EventCode	: 0xFF (HCI_LE_ExtEvent)
+-Data Length	: 0x06 (6) bytes(s)
+ Event		: 0x0513 (ATT_WriteRsp)
+ Status		: 0x00 (Success)
+ ConnHandle	: 0x0000 (0)
+ PduLen		: 0x00 (0)
+Dump(Rx):
+04 FF 06 13 05 00 00 00 00 
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

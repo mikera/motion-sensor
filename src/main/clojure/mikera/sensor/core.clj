@@ -9,9 +9,37 @@
 (defn ble-messages 
   "Creates a Blutooth LE listener channel that reads bytes from byte-chan
    and returns a new value when the message is complete"
-  ([byte-chan]
-    (go )))
+  ([c]
+    (let [result-chan (chan)]
+      (go
+        (loop []
+          (let [eb (<! c)]
+            (when-not (== 0x04 eb) (println (str "Unknown byte: " (hex/hex-string eb))) (recur))
+            (println "event start!")
+            (let [ec (<! c)
+                  elen (<! c)
+                  ^bytes res (byte-array (+ 3 elen))]
+              (aset res 0 (unchecked-byte eb))
+              (aset res 1 (unchecked-byte ec))
+              (aset res 2 (unchecked-byte elen))
+              (dotimes [i elen]
+                (aset res (+ i 3) (unchecked-byte (<! c))))
+              (>! result-chan res)
+              (recur)))))
+      result-chan)))
 
+(defn print-messages
+  "Prints incoming messages from from-chan, asumming they are all byte arrays"
+  ([from-chan]
+    (go 
+      (loop [] 
+        (println (bytes/to-hex-string (<! from-chan)))
+        (recur)))))
+
+(defn rcv-fn [to-chan]
+  (fn [b]
+    ;; (println b)
+    (>!! to-chan b)))
 
 (defn to-bytes 
   "Converts a message piece to a byte array."
@@ -41,10 +69,16 @@
 
 (defn setup []
 	(def port (sp/open "COM4"))
-	
-	(sp/on-byte port #(println %))
+ 
+  (def bchan (chan)) 
 
-  (connect port "78 58 D5 F7 B1 34")  
+  (def pchan (print-messages (ble-messages bchan))) 
+	
+  (def rfn (rcv-fn bchan))
+  
+	(sp/on-byte port rfn)
+
+  (connect port "78 58 D5 F7 B1 34") ;; put your BDA device address here..... 
 
 )
 

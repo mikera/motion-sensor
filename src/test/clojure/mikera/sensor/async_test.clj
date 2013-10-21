@@ -2,7 +2,6 @@
   ;; (:require [clojure.core.matrix :as m])
   (:require [clojure.core.async :as a :refer [go chan <! >! <!! >!!]]))
 
-
 (def print-chan
   (let [c (chan)]
     (go 
@@ -12,3 +11,6 @@
           (println (str r1 r2)))
         (recur)))
     c))
+
+(defn write [a]
+  (a/put! print-chan a))
