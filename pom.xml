@@ -1,23 +1,46 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>net.mikera</groupId>
-  <artifactId>motion-sensor</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-  	<dependency>
-  		<groupId>org.clojure</groupId>
-  		<artifactId>clojure</artifactId>
-  		<version>1.5.1</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>net.mikera</groupId>
-  		<artifactId>vectorz-clj</artifactId>
-  		<version>0.15.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>serial-port</groupId>
-  		<artifactId>serial-port</artifactId>
-  		<version>1.1.2</version>
-  	</dependency>
-  </dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>motion-sensor</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<parent>
+		<artifactId>clojure-pom</artifactId>
+		<groupId>net.mikera</groupId>
+		<version>0.1.0</version>
+	</parent>
+
+	<repositories>
+		<repository>
+			<id>clojars.org</id>
+			<url>http://clojars.org/repo</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.clojure</groupId>
+			<artifactId>clojure</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.mikera</groupId>
+			<artifactId>vectorz-clj</artifactId>
+			<version>0.15.0</version>
+		</dependency>
+		<dependency>
+			<groupId>serial-port</groupId>
+			<artifactId>serial-port</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+	</dependencies>
+
+	<url>https://github.com/nuroko/${project.artifactId}.git</url>
+
+	<scm>
+		<connection>scm:git:git@github.com:nuroko/${project.artifactId}.git</connection>
+		<url>scm:git:git@github.com:nuroko/${project.artifactId}.git</url>
+		<developerConnection>scm:git:git@github.com:nuroko/${project.artifactId}.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
 </project>
