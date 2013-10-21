@@ -3,4 +3,21 @@
   <groupId>net.mikera</groupId>
   <artifactId>motion-sensor</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.clojure</groupId>
+  		<artifactId>clojure</artifactId>
+  		<version>1.5.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>net.mikera</groupId>
+  		<artifactId>vectorz-clj</artifactId>
+  		<version>0.15.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>serial-port</groupId>
+  		<artifactId>serial-port</artifactId>
+  		<version>1.1.2</version>
+  	</dependency>
+  </dependencies>
 </project>
