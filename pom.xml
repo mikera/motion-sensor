@@ -35,12 +35,12 @@
 		</dependency>
 	</dependencies>
 
-	<url>https://github.com/nuroko/${project.artifactId}.git</url>
+	<url>https://github.com/mikera/${project.artifactId}.git</url>
 
 	<scm>
-		<connection>scm:git:git@github.com:nuroko/${project.artifactId}.git</connection>
-		<url>scm:git:git@github.com:nuroko/${project.artifactId}.git</url>
-		<developerConnection>scm:git:git@github.com:nuroko/${project.artifactId}.git</developerConnection>
+		<connection>scm:git:git@github.com:mikera/${project.artifactId}.git</connection>
+		<url>scm:git:git@github.com:mikera/${project.artifactId}.git</url>
+		<developerConnection>scm:git:git@github.com:mikera/${project.artifactId}.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 </project>
