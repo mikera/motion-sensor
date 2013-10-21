@@ -33,6 +33,17 @@
 			<artifactId>serial-port</artifactId>
 			<version>1.1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>net.mikera</groupId>
+			<artifactId>clojure-utils</artifactId>
+			<version>0.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.mikera</groupId>
+			<artifactId>cljunit</artifactId>
+			<version>0.3.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<url>https://github.com/mikera/${project.artifactId}.git</url>
