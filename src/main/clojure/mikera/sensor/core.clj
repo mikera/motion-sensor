@@ -59,12 +59,21 @@
         bytes))))
 
 (defn send-msg [port & msgs]
-  (sp/write port (apply to-bytes msgs)))
+  (let [bs (apply to-bytes msgs)]
+    (println (str "Sending: " (bytes/to-hex-string bs)))
+    (sp/write port bs)))
 
 (defn connect 
   "Connects to a specific BDA device"
   ([port bda-str]
   (send-msg port "01 09 FE 09 00 00 00" bda-str)))
+
+(defn set-gatt 
+  "Writes to a GATT value"
+  ([port handle attr data]
+    (let [^bytes data (to-bytes data)
+          len (+ 4 (alength data))]
+      (send-msg port "01 92 FD" (bytes/unchecked-byte-array [len]) handle attr data))))
 
 
 (defn setup []
@@ -79,7 +88,11 @@
 	(sp/on-byte port rfn)
 
   (connect port "78 58 D5 F7 B1 34") ;; put your BDA device address here..... 
-
+  (set-gatt port "0000" "2e 00" "0100") ;; turn on acceleometer notifications
+  (set-gatt port "0000" "31 00" "01") ;; turn on acceleometer
+  
+  
+  (set-gatt port "0000" "31 00" "00") ;; turn off acceleometer
 )
 
 (defn cleanup []
