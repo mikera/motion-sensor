@@ -12,17 +12,6 @@
   ([byte-chan]
     (go )))
 
-(defn setup []
-	(def port (sp/open "COM4"))
-	
-	(sp/on-byte port #(println %))
-
-
-)
-
-(defn cleanup []
-  (sp/close port)  
-)
 
 (def print-chan
   (let [c (chan)]
@@ -47,12 +36,28 @@
            msgs (seq msgs)]
       (if msgs
         (let [msg (first msgs)]
-          (recur (bytes/join-bytes bytes (to-bytes msg)) 
+          (recur (bytes/join bytes (to-bytes msg)) 
                  (next msgs)))
         bytes))))
 
 (defn send-msg [port & msgs]
   (sp/write port (apply to-bytes msgs)))
 
-(defn connect [bda-str]
-  (send ()))
+(defn connect 
+  "Connects to a specific BDA device"
+  ([port bda-str]
+  (send-msg port "01 09 FE 09 00 00 00" bda-str)))
+
+
+(defn setup []
+	(def port (sp/open "COM4"))
+	
+	(sp/on-byte port #(println %))
+
+  (connect port "78 58 D5 F7 B1 34")  
+
+)
+
+(defn cleanup []
+  (sp/close port)  
+)
