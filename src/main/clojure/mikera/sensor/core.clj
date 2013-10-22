@@ -7,25 +7,24 @@
 
 
 (defn ble-messages 
-  "Creates a Blutooth LE listener channel that reads bytes from byte-chan
+  "Creates a Bluetooth LE listener channel that reads bytes from a channel c
    and returns a new value when the message is complete"
   ([c]
     (let [result-chan (chan)]
-      (go
-        (loop []
-          (let [eb (<! c)]
-            (when-not (== 0x04 eb) (println (str "Unknown byte: " (hex/hex-string eb))) (recur))
-            (println "event start!")
-            (let [ec (<! c)
-                  elen (<! c)
-                  ^bytes res (byte-array (+ 3 elen))]
-              (aset res 0 (unchecked-byte eb))
-              (aset res 1 (unchecked-byte ec))
-              (aset res 2 (unchecked-byte elen))
-              (dotimes [i elen]
-                (aset res (+ i 3) (unchecked-byte (<! c))))
-              (>! result-chan res)
-              (recur)))))
+      (go (loop []
+            (let [eb (<! c)]  ;; Type, expected to be 0x04 (Event)
+              (when-not (== 0x04 eb) (println (str "Unknown byte: " (hex/hex-string eb))) (recur))
+              ;; (println "event start!")
+              (let [ec (<! c) ;; Event code, typically 0xFF (HCI_LE_ExtEvent)
+                    elen (<! c)  ;; Event data length in bytes
+                    ^bytes res (byte-array (+ 3 elen))]
+                (aset res 0 (unchecked-byte eb))
+                (aset res 1 (unchecked-byte ec))
+                (aset res 2 (unchecked-byte elen))
+                (dotimes [i elen]
+                  (aset res (+ i 3) (unchecked-byte (<! c))))
+                (>! result-chan res)
+                (recur)))))
       result-chan)))
 
 (defn print-messages
